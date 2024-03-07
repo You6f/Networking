@@ -38,7 +38,7 @@ int send()
     }
 
     // Open file
-    std::ifstream file("fichierTest.txt", std::ios::binary | std::ios::ate);
+    std::ifstream file("data.json", std::ios::binary | std::ios::ate);
     if (!file.is_open())
     {
         std::cerr << "Unable to open file" << std::endl;

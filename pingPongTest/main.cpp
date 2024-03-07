@@ -5,9 +5,15 @@
 
 int main()
 {
-
-    write("thetest", 66, "data.json");
     recieve();
+    string texte;
+    cout << "veiller entrer une cible";
+    cin >> texte;
+
+    write(texte, 66, "data.json");
+    send();
+
+    // recieve();
 
     return 0;
 }
