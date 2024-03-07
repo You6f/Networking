@@ -1,10 +1,35 @@
 #include <iostream>
+using namespace std;
 #include "readAndWrite.cpp"
 #include "reciever.cpp"
 #include "sender.cpp"
 #include <string>
 
+string genererMotAleatoire()
+{
+    // utilise l'heure actuelle comme graine pour le générateur de nombres aléatoires
+    int longueur = rand() % 6 + 5; // génère une longueur aléatoire entre 5 et 10
+    string mot;
+    for (int i = 0; i < longueur; ++i)
+    {
+
+        char lettre = 'a' + rand() % 26; // génère une lettre aléatoire
+        mot.push_back(lettre);
+    }
+    return mot;
+}
+
 int main()
+{
+    srand(time(NULL));
+    string hasard = genererMotAleatoire();
+    write(hasard, 66, "data.json");
+    send();
+    recieve();
+    return 0;
+}
+
+int mainn()
 {
     cout << "are you the host (yes/NO)";
     string reponse;
