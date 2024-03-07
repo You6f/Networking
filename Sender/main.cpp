@@ -24,7 +24,7 @@ int main()
     serv_addr.sin_port = htons(PORT);
 
     // Convert IPv4 and IPv6 addresses from text to binary form
-    if (inet_pton(AF_INET, "192.168.1.78", &serv_addr.sin_addr) <= 0)
+    if (inet_pton(AF_INET, "192.168.30.169", &serv_addr.sin_addr) <= 0)
     {
         std::cerr << "Invalid address/ Address not supported" << std::endl;
         return -1;
