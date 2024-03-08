@@ -55,11 +55,20 @@ void createJson(string fichier)
     ofstream file(fichier);
 }
 
+void copyJson(string fromf, string tof)
+{
+    json copii = read(fromf);
+    ofstream file(tof);
+    file << setw(4) << copii << endl; // Pretty print with indentation
+    file.close();
+}
+
 int main()
 {
     // menu();
 
-    write("hello4gfgsg", 50, "data.json");
+    // createJson("data2.json");
+    copyJson("data.json", "data3.json");
 
     return 0;
 }

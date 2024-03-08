@@ -4,6 +4,7 @@ using namespace std;
 #include "reciever.cpp"
 #include "sender.cpp"
 #include <string>
+#include <unistd.h>
 
 string genererMotAleatoire()
 {
@@ -21,12 +22,16 @@ string genererMotAleatoire()
 
 int main()
 {
-    srand(time(NULL));
-    string hasard = genererMotAleatoire();
-    write(hasard, 66, "data.json");
-    send();
-    recieve();
-    return 0;
+    while (true)
+    {
+        srand(time(NULL));
+        string hasard = genererMotAleatoire();
+        write(hasard, 66, "data.json");
+        send();
+
+        recieve();
+        sleep(2);
+    }
 }
 
 int mainn()

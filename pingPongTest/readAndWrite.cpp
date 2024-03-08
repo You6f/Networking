@@ -20,7 +20,7 @@ void write(string cible, int resultat, string fichier)
 {
 
     // Create a JSON object
-    json copy = read("data.json");
+    json copy = read(fichier);
 
     copy[cible] = resultat; // write the data
 
@@ -47,6 +47,14 @@ void menu()
 void clean(string fichier)
 {
     ofstream file(fichier);
+}
+
+void copyJson(string fromf, string tof)
+{
+    json copy = read(fromf);
+    ofstream file3(tof);
+    file3 << setw(4) << tof << endl; // Pretty print with indentation
+    file3.close();
 }
 
 void createJson(string fichier)
