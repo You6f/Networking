@@ -22,11 +22,21 @@ string genererMotAleatoire()
 
 int main()
 {
+    // mergeJson("datatest2.json", "datatest.json");
+    // write("data6.json");
+
+    // putbraks("test7.json");
+    updateFile("blabla", 6, "test7.json");
+
+    return 0;
+}
+int mainn2()
+{
     while (true)
     {
         srand(time(NULL));
         string hasard = genererMotAleatoire();
-        write(hasard, 5000000, "data.json");
+        updateFile(hasard, 1, "data3.json");
         send();
 
         recieve();
@@ -50,7 +60,7 @@ int mainn()
             cout << "veiller entrer une cible";
             cin >> texte;
 
-            write(texte, 66, "data.json");
+            updateFile(texte, 50000000, "data.json");
             send();
             cout << "appuyer sur une touche";
             cin >> hasard;
@@ -61,7 +71,7 @@ int mainn()
             string hasard;
             cout << "veiller entrer une cible";
             cin >> texte;
-            write(texte, 66, "data.json");
+            updateFile(texte, 66, "data.json");
             send();
             cout << "appuyer sur une touche";
             cin >> hasard;
