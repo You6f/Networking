@@ -41,7 +41,7 @@ void write(string cible, int resultat, string fichier)
     }
 }
 
-void write2(string cible, int resultat, string fichier)
+void write3(string cible, int resultat, string fichier)
 {
 
     // Create a JSON object
