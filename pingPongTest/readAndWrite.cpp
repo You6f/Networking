@@ -16,7 +16,32 @@ json read(string fichier)
     return data;
 }
 
+
 void write(string cible, int resultat, string fichier)
+{
+    // Créer un objet JSON en lisant à partir du fichier existant
+    json copy;
+    ifstream file_in(fichier); // Ouvrir le fichier en mode lecture
+    if (file_in.is_open()) {
+        file_in >> copy; // Lire le contenu JSON depuis le fichier
+        file_in.close(); // Fermer le fichier après la lecture
+    }
+    // Écrire les nouvelles données dans l'objet JSON
+    copy[cible] = resultat;
+
+    // Ouvrir le fichier en mode écriture
+    ofstream file_out(fichier);
+    if (file_out.is_open()) {
+        // Écrire les données JSON dans le fichier avec une indentation pour une meilleure lisibilité
+        file_out << setw(4) << copy << endl;
+        file_out.close(); // Fermer le fichier après l'écriture
+        cout << "JSON data has been written to " << fichier << endl; // Message de sortie
+    } else {
+        cout << "Failed to open file " << fichier << " for writing." << endl;
+    }
+}
+
+void write2(string cible, int resultat, string fichier)
 {
 
     // Create a JSON object

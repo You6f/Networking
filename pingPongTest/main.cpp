@@ -26,7 +26,7 @@ int main()
     {
         srand(time(NULL));
         string hasard = genererMotAleatoire();
-        write(hasard, 66, "data.json");
+        write(hasard, 5000000, "data.json");
         send();
 
         recieve();
