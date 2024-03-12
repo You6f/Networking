@@ -59,7 +59,7 @@ int recieve()
     std::cout << "File received" << std::endl;
 
     // Write received data to file
-    std::ofstream file("data.json", std::ios::binary);
+    std::ofstream file("update.json", std::ios::binary);
     if (!file.is_open())
     {
         std::cerr << "Unable to open file" << std::endl;

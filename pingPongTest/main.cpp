@@ -22,11 +22,18 @@ string genererMotAleatoire()
 
 int main()
 {
-    // mergeJson("datatest2.json", "datatest.json");
-    // write("data6.json");
 
-    // putbraks("test7.json");
-    updateFile("blabla", 6, "test7.json");
+    while (true)
+    {
+        updateFile(genererMotAleatoire(), 6, "update.json");
+        mergeJson("update.json", "data.json");
+        send();
+        clean("update.json");
+        recieve();
+        mergeJson("update.json", "data.json");
+        clean("update.json");
+        sleep(2);
+    }
 
     return 0;
 }

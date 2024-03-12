@@ -109,7 +109,6 @@ void updateFile(string cible, int resultat, string fichier)
         if (file_in.is_open())
         {
             file_in >> copy; // Lire le contenu JSON depuis le fichier
-            file_in.close(); // Fermer le fichier après la lecture
         }
     }
 
