@@ -22,6 +22,7 @@ string genererMotAleatoire()
 
 int main()
 {
+    srand(time(NULL));
 
     while (true)
     {
@@ -47,7 +48,7 @@ int mainn2()
         send();
 
         recieve();
-        sleep(2);
+        sleep(10);
     }
 }
 
