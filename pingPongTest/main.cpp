@@ -22,7 +22,16 @@ string genererMotAleatoire()
 
 int main()
 {
-    srand(time(NULL));
+  
+
+    //updateFile("lacible","resklsdfjml","update.json");
+    //createJson("test2.json");
+    //clearJson("test2");
+    cout<<read("update.json")<<endl;
+
+   // write("test.json");
+    //afficher(read("test.json")["name"]["age"]);
+   /*srand(time(NULL));
 
     while (true)
     {
@@ -34,7 +43,7 @@ int main()
         mergeJson("update.json", "data.json");
         clean("update.json");
         sleep(2);
-    }
+    }*/ 
 
     return 0;
 }
