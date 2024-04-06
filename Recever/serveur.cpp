@@ -4,10 +4,12 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <unistd.h>
+#include <fcntl.h> // Pour fcntl et O_NONBLOCK
+#include <errno.h>
 
 #define PORT 8080
 
-int main()
+int serveur()
 {
     int server_fd, new_socket;
     struct sockaddr_in address;
@@ -46,20 +48,35 @@ int main()
         std::cerr << "Listen failed" << std::endl;
         return -1;
     }
+    std::cout << "on est laa" << std::endl;
 
-    // Accept connection
-    if ((new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t *)&addrlen)) < 0)
+    // Avant d'appeler accept
+    fcntl(server_fd, F_SETFL, O_NONBLOCK);
+
+    // Appel à accept
+    new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t *)&addrlen);
+    if (new_socket < 0)
     {
-        std::cerr << "Accept failed" << std::endl;
-        return -1;
+        // Si errno == EAGAIN ou errno == EWOULDBLOCK, alors il n'y a pas de connexions entrantes
+        if ((errno == EAGAIN) || (errno == EWOULDBLOCK))
+        {
+            // Pas de connexions entrantes
+        }
+        else
+        {
+            std::cerr << "Accept failed" << std::endl;
+            return -1;
+        }
     }
+
+    std::cout << "mais pas la" << std::endl;
 
     // Receive file
     int valread = read(new_socket, buffer, 1024);
     std::cout << "File received" << std::endl;
 
     // Write received data to file
-    std::ofstream file("received_file.txt", std::ios::binary);
+    std::ofstream file("test.json", std::ios::binary);
     if (!file.is_open())
     {
         std::cerr << "Unable to open file" << std::endl;

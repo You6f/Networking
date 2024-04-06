@@ -7,7 +7,7 @@
 
 #define PORT 8080
 
-int main()
+int envoyer()
 {
     int sock = 0, valread;
     struct sockaddr_in serv_addr;

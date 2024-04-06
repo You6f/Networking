@@ -22,28 +22,30 @@ string genererMotAleatoire()
 
 int main()
 {
-  
 
-    //updateFile("lacible","resklsdfjml","update.json");
-    //createJson("test2.json");
-    //clearJson("test2");
-    cout<<read("update.json")<<endl;
+    // updateFile("lacible","resklsdfjml","update.json");
+    // createJson("test2.json");
+    // clearJson("test2");
+    // cout<<read("update.json")<<endl;
+    testwrite("update.json");
+    afficher(read("update.json")["city2"][2]);
+    updateFile("test", {54, 45}, "testcrea.json");
 
-   // write("test.json");
-    //afficher(read("test.json")["name"]["age"]);
-   /*srand(time(NULL));
+    // write("test.json");
+    // afficher(read("test.json")["name"]["age"]);
+    /*srand(time(NULL));
 
-    while (true)
-    {
-        updateFile(genererMotAleatoire(), 6, "update.json");
-        mergeJson("update.json", "data.json");
-        send();
-        clean("update.json");
-        recieve();
-        mergeJson("update.json", "data.json");
-        clean("update.json");
-        sleep(2);
-    }*/ 
+     while (true)
+     {
+         updateFile(genererMotAleatoire(), 6, "update.json");
+         mergeJson("update.json", "data.json");
+         send();
+         clean("update.json");
+         recieve();
+         mergeJson("update.json", "data.json");
+         clean("update.json");
+         sleep(2);
+     }*/
 
     return 0;
 }

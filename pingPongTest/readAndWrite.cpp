@@ -11,19 +11,18 @@ json read(string fichier)
     if (file_in.peek() != std::ifstream::traits_type::eof())
     {
 
-            // Read the JSON file
-            ifstream file(fichier);
-            json data;
-            file >> data;
-            file.close();
-            return data;
-        
+        // Read the JSON file
+        ifstream file(fichier);
+        json data;
+        file >> data;
+        file.close();
+        return data;
     }
-    else{
-        cout<<"le fichier est vide "<<endl; 
-
+    else
+    {
+        cout << "le fichier est vide " << endl;
     }
- return -1;   
+    return -1;
 }
 
 void putbraks(string fichier)
@@ -36,8 +35,6 @@ void putbraks(string fichier)
     file.close();
     cout << "JSON data has been written to " << fichier << endl;
 }
-
-
 
 void updateFile(string cible, json resultat, string fichier) // cette fonction permet d'ajouter des élements à un fichier Json, en renseignant une cible(elle est utile si on veut imbriquer les données)
 {
@@ -72,7 +69,7 @@ void updateFile(string cible, json resultat, string fichier) // cette fonction p
     }
 }
 
-void updateFile(json datafile, string destinationfile)// c'est la même fonction que just au dessus mais sans cible.
+void updateFile(json datafile, string destinationfile) // c'est la même fonction que just au dessus mais sans cible.
 {
 
     json datafile2;
@@ -102,13 +99,13 @@ void updateFile(json datafile, string destinationfile)// c'est la même fonction
     }
 }
 
-void mergeJson(string fromfile, string tofile)// cette fonction permet de fusionner un ficher Json dans un autre,(donc garde les infos du ficher de destination et en ajoute d'autres)
+void mergeJson(string fromfile, string tofile) // cette fonction permet de fusionner un ficher Json dans un autre,(donc garde les infos du ficher de destination et en ajoute d'autres)
 {
 
     updateFile(read(fromfile), tofile);
 }
 
-void copyJson(string fromfile, string tofile)//copy un json  et le met dans au autre (elle écrase le fichier de destination)
+void copyJson(string fromfile, string tofile) // copy un json  et le met dans au autre (elle écrase le fichier de destination)
 {
     json copy = read(fromfile);
     ofstream file3(tofile);
@@ -116,14 +113,11 @@ void copyJson(string fromfile, string tofile)//copy un json  et le met dans au a
     file3.close();
 }
 
-
 void clearJson(string fichier)
 {
     ofstream file(fichier);
     file.close();
 }
-
-
 
 void createJson(string fichier)
 {
@@ -133,11 +127,11 @@ void createJson(string fichier)
     putbraks(fichier);
 }
 
-void afficher(json data){
+void afficher(json data)
+{
 
-    cout<< data <<endl;
+    cout << data << endl;
 }
-
 
 void testwrite(string fichier)
 {
@@ -150,11 +144,11 @@ void testwrite(string fichier)
     data2["age"] = 45;
     data2["city"] = "New York";
 
-
     // Add some data to the JSON object
     data["name"] = data2;
     data["age"] = 30;
     data["city"] = "New York";
+    data["city2"] = {"new", 5, 34};
     data["numero"] = "53";
     data["numero2"] = "53";
     // Write the JSON object to a file

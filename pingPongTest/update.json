@@ -1,0 +1,16 @@
+{
+    "age": 30,
+    "city": "New York",
+    "city2": [
+        "new",
+        5,
+        34
+    ],
+    "name": {
+        "age": 45,
+        "city": "New York",
+        "name": "John f"
+    },
+    "numero": "53",
+    "numero2": "53"
+}
